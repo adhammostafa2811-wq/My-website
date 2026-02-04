@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شركة المشارق الدولية للسياحة الدينية</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f7f6f2;
+      color: #004d40;
+      overflow-x: hidden;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      text-align: center;
+    }
+    h1, h2 {
+      margin: 20px 0;
+    }
+    .hero {
+      background: linear-gradient(135deg, #004d40, #00695c);
+      color: #ffd700;
+    }
+    .services {
+      background: #fff;
+    }
+    .programs {
+      background: #f0f0f0;
+    }
+    .contact {
+      background: #004d40;
+      color: #fff;
+    }
+    .cta-btn {
+      background: #ffd700;
+      color: #004d40;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .cta-btn:hover {
+      background: #e6c200;
+    }
+    canvas {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <!-- وجهة الترحيب -->
+  <section class="hero">
+    <h1>شركة المشارق الدولية ترحب بعملائها الكرام</h1>
+    <p>نوفر لكم أفضل خدمات الحج والعمرة</p>
+    <canvas id="scene"></canvas>
+    <a href="#services" class="cta-btn">استكشف خدماتنا</a>
+  </section>
+
+  <!-- وجهة الخدمات -->
+  <section class="services" id="services">
+    <h2>خدماتنا</h2>
+    <p>نقل مريح – إقامة فاخرة – أفضل الفنادق</p>
+  </section>
+
+  <!-- وجهة البرامج -->
+  <section class="programs">
+    <h2>برامجنا</h2>
+    <p>برامج حج وعمرة متنوعة تناسب جميع العملاء</p>
+  </section>
+
+  <!-- وجهة التواصل -->
+  <section class="contact">
+    <h2>اتصل بنا</h2>
+    <p>📞 01012345678</p>
+    <p>✉️ info@mashareq.com</p>
+  </section>
+
+  <!-- مكتبات -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+
+  <script>
+    // ====== Three.js (مجسم 3D) ======
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("scene"), alpha: true });
+    renderer.setSize(300, 300);
+
+    const light = new THREE.PointLight(0xffffff, 1);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+
+    const geometry = new THREE.BoxGeometry(2, 2, 2);
+    const material = new THREE.MeshStandardMaterial({ color: 0x111111, metalness: 0.6, roughness: 0.4 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    camera.position.z = 5;
+
+    function animate3D() {
+      requestAnimationFrame(animate3D);
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+    animate3D();
+
+    // ====== GSAP Animations ======
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".hero h1", {
+      y: -100,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: ".hero"
+    });
+
+    gsap.from(".services h2", {
+      x: -200,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: ".services"
+    });
+
+    gsap.from(".programs h2", {
+      y: 200,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: ".programs"
+    });
+
+    gsap.from(".contact h2", {
+      scale: 0.5,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: ".contact"
+    });
+  </script>
+</body>
+</html>
