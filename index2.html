@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta name="author" content="adham">
+  <meta name="description" content="learning html">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <title>المشاعر الدولية ترافيل</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("green.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      direction: rtl;
+    }
+
+    header {
+      background-color: rgb(255, 196, 0);
+      width: 100%;
+      position: fixed;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 200px;
+    }
+
+    .logo {
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: xx-large;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      color: white;
+      font-size: xx-large;
+      font-weight: 600;
+      padding-left: 30px;
+    }
+
+    .navigation a:hover {
+      color: rgb(10, 226, 10);
+      font-weight: 900;
+    }
+
+    section {
+      padding: 100px 200px;
+    }
+
+    .main {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: url("gold.jpg") no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .main h2 {
+      color: black;
+      font-size: 60px;
+      font-weight: 800;
+    }
+
+    .rek { 
+      padding-left:60px;
+      width:800px; 
+      border-radius: 15px; 
+      transition: transform 0.4s ease; 
+      animation: bounce 2s infinite; 
+    } 
+    .rek:hover { 
+      transform: scale(1.2); 
+    } 
+    @keyframes bounce {  
+      0%, 100% { transform: translateY(0); }  
+      50% { transform: translateY(-40px); }
+    }
+
+    .main h3 {
+      color: black;
+      font-size: 28px;
+      font-weight: 600;
+      margin: 10px 0 30px;
+    }
+
+    .main-buttom {
+      color: white;
+      background-color: rgb(13, 192, 13);
+      text-decoration: none;
+      font-size: 24px;
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      transition: 0.7s ease;
+    }
+
+    .main-buttom:hover {
+      background-color: green;
+      transform: scale(1.1);
+    }
+
+    .social-icons a {
+      color: rgb(52, 52, 243);
+      font-size: 60px;
+      margin-right: 15px;
+    }
+
+    /* قسم الخدمات */
+    #services {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    #services h2 {
+      font-size: 50px;
+      margin-bottom: 30px;
+      color: #f1a83b;
+    }
+
+    .services-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .service-box {
+      background: rgb(9, 156, 28);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 250px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(211, 76, 14, 0.2);
+    }
+
+    .service-box i {
+      font-size: 40px;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .service-box h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .service-box p {
+      font-size: 16px;
+      color: #eee;
+      line-height: 1.6;
+    }
+
+    /* قسم البرامج */
+    #البرامج {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    #البرامج h3.hair {
+      font-size: 40px;
+      color: #f1a83b;
+      margin-bottom: 40px;
+    }
+
+    .محتوي.البرامج {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .محتوي.البرامج div {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 15px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .محتوي.البرامج div:hover {
+      transform: scale(1.05);
+    }
+
+    .محتوي.البرامج img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .محتوي.البرامج img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .close:hover {
+      color: red;
+    }
+
+    /* الخطوات */
+    #الخطوات {
+      padding: 60px 20px;
+      text-align: center;
+      background-image: url(green2.jpg);
+    }
+
+    #الخطوات h2 {
+      font-size: 80px;
+      margin-bottom: 40px;
+      color: #ec9f0f;
+    }
+
+    .step-box {
+      background: #fbfcfa;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .step-box:hover {
+      transform: translateY(-8px);
+    }
+
+    .step-box i {
+      font-size: 40px;
+      color: #257fdf;
+      margin-bottom: 15px;
+    }
+
+    .step-box h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #da1010;
+    }
+
+    .step-box p {
+      font-size: 16px;
+      color: #f05ae8;
+    }
+
+    @media(max-width: 768px) {
+      header {
+        padding: 10px 20px;
+        flex-direction: column;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+
+      .main {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .main h2 { font-size: 40px; }
+      .main h3 { font-size: 20px; }
+
+      .main-buttom { font-size: 18px; padding: 10px 20px; }
+
+      .rek { max-width:70%; margin-top:80px; }
+
+      .service-box, .محتوي.البرامج div {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .محتوي.البرامج {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .navigation a { font-size: 18px; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">المشاعر الدولية ترافيل</a>
+    <nav class="navigation">
+      <a href="#البرامج">برامج</a>
+      <a href="#الخطوات">الخطوات</a>
+      <a href="#services">الخدمات</a>
+    </nav>
+  </header>
+
+  <section class="main">
+    <div>
+      <h3>اهلا بعميلنا العزيز</h3>
+      <h2>شركة المشاعر الدولية ترحب بعملائها</h2>
+      <h3>للاستطلاع ادخل علي صفحتنا علي الفيسبوك</h3>
+      <a href="#البرامج" class="main-buttom">البرامج المتاحة</a>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1DczRHLMGD/"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+    <a href="#logoimg"><img class="rek" src="adham2.png" width="400" alt="شعار الشركة"></a>
+  </section>
+
+  <section id="services">
+    <h2>خدماتنا</h2>
+    <div class="services-container">
+      <div class="service-box"><i class="fas fa-plane"></i><h3>حجز تذاكر الطيران</h3><p>نوفر تذاكر طيران بأسعار تنافسية ومواعيد مرنة.</p></div>
+      <div class="service-box"><i class="fas fa-mosque"></i><h3>رحلات العمرة</h3><p>تنظيم رحلات عمرة مميزة مع برامج متكاملة.</p></div>
+      <div class="service-box"><i class="fas fa-hotel"></i><h3>حجز فنادق</h3><p>حجوزات في أفضل الفنادق القريبة من الحرم.</p></div>
+      <div class="service-box"><i class="fas fa-bus"></i><h3>خدمات النقل</h3><p>توفير باصات حديثة ومريحة للتنقل بين المدن.</p></div>
+    </div>
+  </section>
+
+  <section id="البرامج">
+    <h3 class="hair">البرامج المتاحة</h3>
+    <div class="محتوي البرامج">
+      <div class="box1"><h3>البرنامج الاول</h3><a href="#img1"><img src="box1.jpg" alt="البرنامج الاول"></a><p>تفاصيل قصيرة عن البرنامج</p></div>
+      <div class="box2"><h3>البرنامج الثاني</h3><a href="#img2"><img src="box2.jpg" alt="البرنامج الثاني"></a><p>تفاصيل قصيرة عن البرنامج</p></div>
+      <div class="box3"><h3>البرنامج الثالث</h3><a href="#img3"><img src="box3.jpg" alt="البرنامج الثالث"></a><p>تفاصيل قصيرة عن البرنامج</p></div>
+      <div class="box4"><h3>البرنامج الرابع</h3><a href="#img4"><img src="box4.jpg" alt="البرنامج الرابع"></a><p>تفاصيل قصيرة عن البرنامج</p></div>
+    </div>
+  </section>
+
+  <!-- Lightbox الصور -->
+  <div id="img1" class="lightbox"><a href="#" class="close">&times;</a><img src="box1.jpg" alt=""></div>
+  <div id="img2" class="lightbox"><a href="#" class="close">&times;</a><img src="box2.jpg" alt=""></div>
+  <div id="img3" class="lightbox"><a href="#" class="close">&times;</a><img src="box3.jpg" alt=""></div>
+  <div id="img4" class="lightbox"><a href="#" class="close">&times;</a><img src="box4.jpg" alt=""></div>
+
+  <section id="الخطوات">
+    <h2>خطوات الحجز</h2>
+    <div class="services-container">
+      <div class="step-box"><i class="fas fa-list"></i><h3>الخطوة الأولى</h3><p>اختيار البرنامج المناسب من موقعنا.</p></div>
+      <div class="step-box"><i class="fas fa-phone"></i><h3>الخطوة الثانية</h3><p>التواصل معنا عبر الهاتف علي01222402563 أو الفيسبوك.</p></div>
+      <div class="step-box"><i class="fas fa-check-circle"></i><h3>الخطوة الثالثة</h3><p>تأكيد الحجز ودفع العربون.</p></div>
+      <div class="step-box"><i class="fas fa-ticket-alt"></i><h3>الخطوة الرابعة</h3><p>استلام التذكرة وبداية الرحلة.</p></div>
+    </div>
+  </section>
+
+</body>
+</html>
